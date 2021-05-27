@@ -42,8 +42,12 @@ app.get('/', (req, res) => {
   const consulta = consultas.filter(_consulta => _consulta.id === consultaString)[0];
 
   if (consulta !== undefined) {
+    const startAt = new Date();
     executeAggregate(consulta.collection, consulta.query, (result) => {
-      res.render("index", { consultaAtual: consulta, consultas, result });
+      const endAt = new Date();
+      const time = (endAt - startAt) / 1000;
+
+      res.render("index", { consultaAtual: consulta, consultas, result, time });
     });
   } else {
     res.render("index", { consultas });

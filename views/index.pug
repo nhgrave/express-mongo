@@ -47,8 +47,9 @@ html(lang="en")
 
           - if (typeof result !== 'undefined')
             div(class="is-size-4")
-              = 'Resultado '
-              = result.length
+              = `Resultado ${result.length} reg.`
+              - if (typeof time !== 'undefined')
+                = ` em ${time} seg.`
 
             div(class='consulta')
               each row in result
