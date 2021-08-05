@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
+    "start": "node --max-old-space-size=8192 server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
